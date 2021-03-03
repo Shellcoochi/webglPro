@@ -8,18 +8,21 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: "babel-loader",
-        options: { presets: ["@babel/env"] }
+        options: {
+          presets: ["@babel/env"],
+          plugins: ["@babel/plugin-proposal-class-properties"],
+        },
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
-      }
-    ]
+        use: ["style-loader", "css-loader"],
+      },
+    ],
   },
   resolve: { extensions: ["*", ".js", ".jsx"] },
   output: {
     path: path.resolve(__dirname, "../../dist/"),
     publicPath: "/dist/",
-    filename: "bundle.js"
+    filename: "bundle.js",
   },
 };
